@@ -1,6 +1,6 @@
 # Rack::SmartphoneDetector [![Build Status](https://secure.travis-ci.org/ihara2525/rack-smartphone_detector.png?branch=master)](http://travis-ci.org/ihara2525/rack-smartphone_detector)
 
-It's a very simple Rack middleware which detect the request comes from smartphones (iPhone/iPad/Android/Windows Phone).  
+It's a very simple Rack middleware which detect the request comes from smartphones (iPhone/iPad/Android/Android Tablet/Windows Phone).  
 
 You can use #from_smartphone? to detect the request.
 
