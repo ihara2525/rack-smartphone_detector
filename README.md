@@ -8,6 +8,16 @@ You can use #from_smartphone? to detect the request.
 request.from_smartphone? # true if it comes from such devices
 ```
 
+or, use methods for each devices.
+
+```ruby
+request.from_iphone?         # true if it comes from iphone
+request.from_ipad?           # true if it comes from ipad
+request.from_android?        # true if it comes from android mobile
+request.from_android_tablet? # true if it comes from android tablet
+request.from_windows_phone?  # true if it comes from windows phone
+```
+
 What this middleware does is just matching HTTP_USER_AGENT with identifier of smartphones.
 
 ## Installation
