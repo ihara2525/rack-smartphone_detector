@@ -9,7 +9,7 @@ module Rack
     SMARTPHONE_IDENTIFIERS = [
       { identifier: 'iPhone',         regexp: /iPhone/ },
       { identifier: 'iPad',           regexp: /iPad/ },
-      { identifier: 'Android',        regexp: /Android.+Mobile/ },
+      { identifier: 'Android',        regexp: /Android.+Mobi(le)?/ },
       { identifier: 'Android Tablet', regexp: /Android/ },
       { identifier: 'Windows Phone',  regexp: /Windows Phone/ },
     ]
