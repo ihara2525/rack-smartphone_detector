@@ -7,6 +7,10 @@ module Rack
           !env['rack.smartphone_detector.device'].nil?
         end
 
+        def smartphone_version
+          env['rack.smartphone_detector.device_version']
+        end
+
         SMARTPHONE_IDENTIFIERS.each do |info|
           name = %Q{from_#{info[:identifier].downcase.gsub(' ', '_')}?}
           define_method(name) { env['rack.smartphone_detector.device'] == info[:identifier] }
