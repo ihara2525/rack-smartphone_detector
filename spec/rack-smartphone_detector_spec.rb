@@ -9,32 +9,56 @@ describe 'Rack::SmartphoneDetector' do
   SMARTPHONES = [
     {
       name: 'iPhone',
+      version: '5_1_1',
+      user_agents: [
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B206 Safari/7534.48.3',
+      ]
+    },
+    {
+      name: 'iPhone',
+      version: '6_0',
       user_agents: [
         'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25',
       ]
     },
     {
       name: 'iPad',
+      version: '6_0',
       user_agents: [
         'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'
       ]
     },
     {
       name: 'Android',
+      version: '4.0.1',
       user_agents: [
         'Mozilla/5.0 (Linux; U; Android 4.0.1; ja-jp; Galaxy Nexus Build/ITL41D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-        'Mozilla/5.0 (Android; Mobile; rv:18.0) Gecko/18.0 Firefox/18.0',
+      ]
+    },
+    {
+      name: 'Android',
+      version: '4.2.1',
+      user_agents: [
         'Opera/9.80 (Android 4.2.1; Linux; Opera Mobi/ADR-1301080958) Presto/2.11.355 Version/12.10'
       ]
     },
     {
+      name: 'Android',
+      version: nil,
+      user_agents: [
+        'Mozilla/5.0 (Android; Mobile; rv:18.0) Gecko/18.0 Firefox/18.0',
+      ]
+    },
+    {
       name: 'Android Tablet',
+      version: '4.1.1',
       user_agents: [
         'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03S) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19'
       ]
     },
     {
       name: 'Windows Phone',
+      version: '7.5',
       user_agents: [
         'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)'
       ]
@@ -81,6 +105,18 @@ describe 'Rack::SmartphoneDetector' do
     it 'returns false if the request comes from device without user-agent' do
       get '/'
       last_request.from_smartphone?.must_equal false
+    end
+  end
+
+  describe '#smartphone_version' do
+    it 'returns version number string if it could be detected' do
+      SMARTPHONES.each do |info|
+        info[:user_agents].each do |ua|
+          header 'User-Agent', ua
+          get '/'
+          last_request.smartphone_version.must_equal info[:version]
+        end
+      end
     end
   end
 
