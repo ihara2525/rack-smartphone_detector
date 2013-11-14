@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.homepage    = 'https://github.com/ihara2525/rack-smartphone_detector'
   gem.description = 'Simple Rack middleware which detect the request comes from smartphone'
   gem.summary     = 'Simple Rack middleware which detect the request comes from smartphone'
+  gem.license     = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
