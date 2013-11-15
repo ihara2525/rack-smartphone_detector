@@ -40,9 +40,9 @@ Or install it yourself as:
 $ gem install rack-smartphone_detector
 ```
 
-## Usage with Rails 3
+## Usage with Rails 4 or Rails 3
 
-If you are using Rails 3, you have no futher steps to do.
+If you are using Rails 4 or Rails 3, you have no futher steps to do.
 
 ## Contributing
 
