@@ -18,6 +18,13 @@ request.from_android_tablet? # true if it comes from android tablet
 request.from_windows_phone?  # true if it comes from windows phone
 ```
 
+When you want to get the device version, use `smartphone_version`.
+
+```ruby
+# HTTP_USER_AGENT is 'Mozilla/5.0 (Linux; U; Android 4.0.1; ja-jp; Galaxy Nexus Build/ITL41D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
+request.smartphone_version # => 4.0.1
+```
+
 What this middleware does is just matching HTTP_USER_AGENT with identifier of smartphones.
 
 ## Installation
